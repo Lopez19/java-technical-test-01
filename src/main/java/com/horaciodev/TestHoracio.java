@@ -1,5 +1,7 @@
 package com.horaciodev;
 
+import java.util.Arrays;
+
 /**
  *
  * @author Lopez19 > Horacio L.
@@ -29,13 +31,33 @@ public class TestHoracio {
         return "DESORDENADO";
     }
 
+    //Ejercicio #2: Ordenar arreglo de mayor a menor
+    private void e2ordenarArrayMayorMenor(int[] numeros) {
+        for (int i = 0; i < numeros.length - 1; i++) {
+            for (int j = i + 1; j < numeros.length; j++) {
+                if (numeros[i] < numeros[j]) {
+                    int auxiliar = numeros[i];
+                    numeros[i] = numeros[j];
+                    numeros[j] = auxiliar;
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) {
 
+        //Instanciamos la clase Main
         TestHoracio app = new TestHoracio();
 
-        //Ejercicio #1
+        //Variables y arreglos de test
         int[] arr = {1, 1, 1, 1, 1};
-        System.out.println("Orden del arreglo: " + app.e1ordenNumeros(arr));
+        int[] desordenados = {1, 2, 3, 4, 7, 8, 9, -1, -3, 0, 3334, 6, 76767, 4, 45, 4};
 
+//Ejercicio #1
+//        System.out.println("Orden del arreglo: " + app.e1ordenNumeros(arr));
+//Ejercicio #2
+        System.out.println("Array desordenado: " + Arrays.toString(desordenados));
+        app.e2ordenarArrayMayorMenor(desordenados);
+        System.out.println("Array ordenado: " + Arrays.toString(desordenados));
     }
 }
